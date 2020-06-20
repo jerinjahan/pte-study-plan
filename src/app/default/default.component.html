@@ -1,0 +1,174 @@
+<div class="row col-md-12">
+    <div class="col-md-8" >
+        <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input class="form-check-input chkbox" type="checkbox" (click)="pussCheckedItem(1,formData.bname)">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Business Name</mat-label>
+                    <input matInput placeholder="" [(ngModel)] = "formData.bname" name="formData.bname">
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-6">
+                <input class="form-check-input chkbox" type="checkbox" (click)="pussCheckedItem(2,formData.jtitle)">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Job Title</mat-label>
+                    <input matInput placeholder="" [(ngModel)] = "formData.jtitle" name="formData.jtitle">
+                </mat-form-field>
+              </div>
+            </div>
+             <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input class="form-check-input chkbox" type="checkbox" (click)="pussCheckedItem(3,formData.fname)">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>First Name</mat-label>
+                        <input matInput placeholder="" [(ngModel)] = "formData.fname" name="formData.fname">
+                    </mat-form-field>
+                </div>
+                <div class="form-group col-md-6">
+                    <input class="form-check-input chkbox" type="checkbox" (click)="pussCheckedItem(4,formData.lname)">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput placeholder="" [(ngModel)] = "formData.lname" name="formData.lname">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-group">
+                <mat-form-field class="example-full-width2">
+                    <input class="form-check-input chkbox-full" type="checkbox" (click)="pussCheckedItem(5,formData.lgroup)">
+                    <mat-label>Location Group</mat-label>
+                    <mat-select [(ngModel)] = "formData.lgroup" name="formData.lgroup">
+                        <mat-option *ngFor="let l of locations" [value]="l">
+                          {{l}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+           <div class="form-group">
+                <input class="form-check-input chkbox" type="checkbox" (click)="pussCheckedItem(6,formData.address)">
+                <mat-form-field class="example-full-width2">
+                    <mat-label>Address</mat-label>
+                    <input matInput placeholder="" [(ngModel)] = "formData.address" name="formData.address">
+                </mat-form-field>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input class="form-check-input chkbox" type="checkbox" (click)="pussCheckedItem(7,formData.zip)">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Zip Code</mat-label>
+                        <input matInput placeholder="" [(ngModel)] = "formData.zip" name="formData.zip">
+                    </mat-form-field>
+                </div>
+                <div class="form-group col-md-6">
+                    <input class="form-check-input chkbox" type="checkbox" (click)="pussCheckedItem(8,formData.city)">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>City</mat-label>
+                        <input matInput placeholder="" [(ngModel)] = "formData.city" name="formData.city">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-group">
+                <mat-form-field class="example-full-width2">
+                    <input class="form-check-input chkbox-full" type="checkbox" (click)="pussCheckedItem(9,formData.country)">
+                    <mat-label>Country</mat-label>
+                    <mat-select [(ngModel)] = "formData.country" name="formData.country">
+                        <mat-option *ngFor="let l of country" [value]="l" >
+                          {{l}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input class="form-check-input chkbox" type="checkbox" (click)="pussCheckedItem(10,formData.phone)">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput placeholder="" [(ngModel)] = "formData.phone" name="formData.phone">
+                    </mat-form-field>
+                </div>
+                <div class="form-group col-md-6">
+                    <input class="form-check-input chkbox" type="checkbox" (click)="pussCheckedItem(11,formData.mobile)">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Mobile Number</mat-label>
+                        <input matInput placeholder="" [(ngModel)] = "formData.mobile" name="formData.mobile">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input class="form-check-input chkbox" type="checkbox" (click)="pussCheckedItem(12,formData.email)">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="" [(ngModel)] = "formData.email" name="formData.email">
+                    </mat-form-field>
+                </div>
+                <div class="form-group col-md-6">
+                    <input class="form-check-input chkbox" type="checkbox" (click)="pussCheckedItem(13,formData.website)">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Website</mat-label>
+                        <input matInput placeholder="" [(ngModel)] = "formData.website" name="formData.website">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-group">
+                <mat-form-field class="example-full-width2" (click)="pussCheckedItem(14,formData.ctype)">
+                    <input class="form-check-input chkbox-full" type="checkbox">
+                    <mat-label>Contact Type</mat-label>
+                    <mat-select [(ngModel)] = "formData.ctype" name="formData.ctype">
+                        <mat-option *ngFor="let l of country" [value]="l" >
+                          {{l}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field class="example-full-width2">
+                    <input class="form-check-input chkbox-full" type="checkbox" (click)="pussCheckedItem(15,formData.cstype)">
+                    <mat-label>Contact Sub Group</mat-label>
+                    <mat-select [(ngModel)] = "formData.cstype" name="formData.cstype">
+                        <mat-option *ngFor="let l of country" [value]="l" >
+                          {{l}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <div class="form-check" style="padding-left: 0rem!important;">
+                    <label class="form-check-label" for="gridCheck">
+                        Use this Address for Invoice
+                    </label>
+                    <input class="form-check-input" style="margin-left: .5rem!important;cursor: pointer;" type="checkbox">
+                    <label class="form-check-label" style="margin-left: 2rem;">
+                        Shipping
+                    </label>
+                    <input class="form-check-input" style="margin-left: .5rem!important;cursor: pointer!important;" type="checkbox">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4" style="margin-top:5em;">
+        <mat-button-toggle-group #group="matButtonToggleGroup">
+            <mat-button-toggle value="left" disabled aria-label="Text align left" (click)="changeAlingment(1)">
+              <mat-icon>format_align_left</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle value="center" aria-label="Text align center" (click)="changeAlingment(2)">
+              <mat-icon>format_align_center</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle value="right" aria-label="Text align right" (click)="changeAlingment(3)">
+              <mat-icon>format_align_right</mat-icon>
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <div *ngFor = 'let item of selectedItem; let i = index' [ngClass]= "{'white-bold': i == 0, 'left-align': alignmentType == 1, 
+        'center-align': alignmentType == 2, 
+        'right-align': alignmentType == 3}"> 
+            <span *ngIf = 'i == 0'>{{item.value}}</span>
+            <span *ngIf = 'item.checked && i > 0'>{{formData[item.value]}}</span>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <form>
+            <button mat-flat-button class="pull-right">Create Contact</button>
+        </form>
+    </div>
+</div>

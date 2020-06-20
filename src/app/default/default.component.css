@@ -1,0 +1,45 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+.form-group{
+    margin-bottom: 0px!important;
+}
+.chkbox{
+    margin-left: .1rem!important;
+    margin-top: 1.5rem!important;
+    cursor: pointer;
+}
+.chkbox-full{
+    margin-left: -1.5rem!important;
+    margin-top: .5rem!important;
+    cursor: pointer;
+}
+.example-full-width {
+    width: 80%;
+    margin-left: 1.5rem;
+}
+.example-full-width2 {
+    width: 90%;
+    margin-left: 1.5rem;
+}
+.white-bold{
+    font-weight: bold;
+    font-size: 600;
+}
+.btn-group .btn-default{
+    border:1px solid #ddd!important;
+}
+.left-align{
+    text-align: left;
+}
+.center-align{
+    text-align: center;
+}
+.right-align{
+    text-align: right;
+}
+.btn-group :hover{
+    border: navy;
+}
