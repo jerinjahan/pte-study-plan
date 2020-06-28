@@ -295,11 +295,11 @@ export class RoutineComponent implements OnInit {
 
 
 	doneItem(parentIndex,childIndex){
-		this.itemList[(parentIndex -1)].items[childIndex -1].isDone = true;
+		this.itemList[(parentIndex -1)].items[childIndex -1].isDone = !this.itemList[(parentIndex -1)].items[childIndex -1].isDone;
 		localStorage.setItem('JitemLists',JSON.stringify(this.itemList));
 	}
 	doneItem1(parentIndex,childIndex){
-		this.itemList[(parentIndex -1)].items[childIndex -1].isDone = true;
+		this.itemList2[(parentIndex -1)].items[childIndex -1].isDone = !this.itemList2[(parentIndex -1)].items[childIndex -1].isDone;
 		localStorage.setItem('RitemLists',JSON.stringify(this.itemList2));
 	}
 	
