@@ -1,0 +1,163 @@
+<!-- <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+        <button mat-icon-button disabled></button>
+        <mat-checkbox class="checklist-leaf-node"
+            [checked]="false"
+            (change)="todoLeafItemSelectionToggle(node)">{{node.name}} -- {{node.amount}}
+        </mat-checkbox>
+        <button mat-icon-button (click)="addNewItem(node)"><mat-icon>add</mat-icon></button>
+    </mat-tree-node>
+
+    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+        <button mat-icon-button matTreeNodeToggle
+                [attr.aria-label]="'toggle ' + node.name">
+            <mat-icon class="mat-icon-rtl-mirror">
+                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+        </button>
+        {{node.name}} --- Parent Node {{node.amount}}
+    </mat-tree-node>
+</mat-tree> -->
+
+
+<div class="card alternative">
+	<mat-tab-group class="form-wizard" [(selectedIndex)]="selectedIndex">
+        <mat-tab>
+			<ng-template mat-tab-label>
+				<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+					<!-- <span class="badge primary">1</span> -->
+					<span>Jerin Jahan</span>
+				</div>
+            </ng-template>
+            <mat-card>
+                <h3 style="font-weight: bold;">Candidate Name : Jerin Jahan</h3>
+                <table class="table table-bordered table condensed">
+                    <tr>
+                        <th width="10%">ID</th>
+                        <th colspan="2">Day Name</th>
+                    </tr>
+                    <tr *ngFor="let node of itemList">
+                        <td width="10%">{{node.id}} .</td>
+                        <td width="20%">{{node.day}}</td>
+                        <td width="70%">
+                            <table class="table table-bordered table condensed">
+                                <tr>
+                                    <th>Status</th>
+                                    <th>SL</th>
+                                    <th>Name</th>
+                                    <th>Number</th>
+                                </tr>
+                                <tr *ngFor="let i of node.items">
+                                    <td width="10%">
+                                        <mat-checkbox class="checklist-leaf-node"
+                                            [checked]="i.isDone" (change)="doneItem(node.id,i.id)">
+                                        </mat-checkbox>
+                                    </td>
+                                    <td width="20%">{{i.id}}</td>
+                                    <td width="50%">{{i.name}}</td>
+                                    <td width="20%">{{i.amount}}</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </mat-card>
+        </mat-tab>
+        <mat-tab>
+			<ng-template mat-tab-label>
+				<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+					<!-- <span class="badge primary">2</span> -->
+					<span>Raqib Hasan</span>
+				</div>
+            </ng-template>
+            <mat-card>
+                <h3 style="font-weight: bold;">Candidate Name : Raqib Hasan</h3>
+                <table class="table table-bordered table condensed">
+                    <tr>
+                        <th width="10%">ID</th>
+                        <th colspan="2">Day Name</th>
+                    </tr>
+                    <tr *ngFor="let node of itemList2">
+                        <td width="10%">{{node.id}} .</td>
+                        <td width="20%">{{node.day}}</td>
+                        <td width="70%">
+                            <table class="table table-bordered table condensed">
+                                <tr>
+                                    <th>Status</th>
+                                    <th>SL</th>
+                                    <th>Name</th>
+                                    <th>Number</th>
+                                </tr>
+                                <tr *ngFor="let i of node.items">
+                                    <td width="10%">
+                                        <mat-checkbox class="checklist-leaf-node"
+                                            [checked]="i.isDone" (change)="doneItem(node.id,i.id)">
+                                        </mat-checkbox>
+                                    </td>
+                                    <td width="20%">{{i.id}}</td>
+                                    <td width="50%">{{i.name}}</td>
+                                    <td width="20%">{{i.amount}}</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </mat-card>
+        </mat-tab>
+	</mat-tab-group>
+</div>
+
+<!-- <div class="row">
+    <div class="col-sm-6">
+        <h3 style="font-weight: bold;">Candidate Name : Jerin Jahan</h3>
+        <table class="table table-bordered table condensed">
+            <tr>
+                <th>ID</th>
+                <th colspan="2">Day Name</th>
+            </tr>
+            <tr *ngFor="let node of itemList">
+                <td>{{node.id}} .</td>
+                <td>{{node.day}}</td>
+                <td>
+                    <tr *ngFor="let i of node.items">
+                        <td>
+                            <mat-checkbox class="checklist-leaf-node"
+                                [checked]="i.isDone" (change)="doneItem(node.id,i.id)">
+                            </mat-checkbox>
+                        </td>
+                        <td>{{i.id}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.amount}}</td>
+                    </tr>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-sm-6">
+        <h3 style="font-weight: bold;">Candidate Name : Raqib Hasan</h3>
+        <table class="table table-bordered table condensed">
+            <tr>
+                <th>ID</th>
+                <th colspan="2">Day Name</th>
+            </tr>
+            <tr *ngFor="let node of itemList2">
+                <td>{{node.id}} .</td>
+                <td>{{node.day}}</td>
+                <td>
+                    <tr *ngFor="let i of node.items">
+                        <td>
+                            <mat-checkbox class="checklist-leaf-node"
+                                [checked]="i.isDone" (change)="doneItem(node.id,i.id)">
+                            </mat-checkbox>
+                        </td>
+                        <td>{{i.id}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.amount}}</td>
+                    </tr>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div> -->
+
+

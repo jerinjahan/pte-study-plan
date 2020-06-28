@@ -21,10 +21,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
-
-
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { RoutineComponent } from './routine/routine.component';
+import { MatListModule} from '@angular/material/list';
+import { MatTreeModule} from '@angular/material/tree';
+import { MatCardModule} from '@angular/material/card';
+import { CdkTreeModule} from '@angular/cdk/tree';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     TabstripComponent,
     DefaultComponent,
     InvoiceComponent,
-    ShippingComponent
+    ShippingComponent,
+    RoutineComponent
   ],
   imports: [
     BrowserModule,
@@ -49,9 +53,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatDialogModule,
     MatButtonModule,
     MatButtonToggleModule,
-    MatIconModule
+    MatIconModule,
+    MatTreeModule,
+    MatCardModule,
+    CdkTreeModule,
+    MatListModule,
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: []
 })
 export class AppModule { }
