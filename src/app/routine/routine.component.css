@@ -1,5 +1,7 @@
 .mat-card{
     padding:25px!important;
+    overflow: auto;
+    height: calc(100vh - 205px);
 }
 .bg-gray {
     color: #000;
