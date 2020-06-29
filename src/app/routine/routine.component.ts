@@ -268,6 +268,7 @@ export class RoutineComponent implements OnInit {
 	ngOnInit(): void {
 		let locatlStorageDataJ = localStorage.getItem('JitemLists');
 		let locatlStorageDataR = localStorage.getItem('RitemLists');
+		let locatlStorageDataViewAs = localStorage.getItem('viewAs');
 		if(locatlStorageDataJ == null || locatlStorageDataJ == ''){
 			this.itemList = DataLists;
 			localStorage.setItem('JitemLists',JSON.stringify(this.itemList));
@@ -280,7 +281,10 @@ export class RoutineComponent implements OnInit {
 			localStorage.setItem('RitemLists',JSON.stringify(this.itemList2));
 		}else{
 			this.itemList2 = JSON.parse(locatlStorageDataR);
-		}
+        }
+        if(locatlStorageDataViewAs != ''){
+            this.selectedIndex = JSON.parse(locatlStorageDataViewAs);
+        }
 	}
 
 	todoLeafItemSelectionToggle(node: DayLists): void {
@@ -302,6 +306,9 @@ export class RoutineComponent implements OnInit {
 		this.itemList2[(parentIndex -1)].items[childIndex -1].isDone = !this.itemList2[(parentIndex -1)].items[childIndex -1].isDone;
 		localStorage.setItem('RitemLists',JSON.stringify(this.itemList2));
 	}
-	
+	viewAs(val){
+        this.selectedIndex = val;
+        localStorage.setItem('viewAs',JSON.stringify(this.selectedIndex));
+    }
 
 }
