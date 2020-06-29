@@ -2,10 +2,12 @@
     padding:25px!important;
     overflow: auto;
     height: calc(100vh - 205px);
+    background-color: #f4f5f640;
 }
 .bg-gray {
     color: #000;
-    background-color: #d2d6de !important;
+    background-color: #f4f4f4;
+    border: 1px solid #ded7d7;
 }
 .open{
     display:block;
@@ -19,7 +21,7 @@
 }
 
 .box1 {
-    background-color: #3197a76b;
+    background-color: rgba(0, 123, 255, 0.09);
     max-height: 0px;
     overflow-y: hidden;
     transition: ease-in-out 400ms max-height;
