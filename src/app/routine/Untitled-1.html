@@ -1,0 +1,414 @@
+
+
+<!-- Created By Jerin Jahan (27.02.2018) -->
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BaseVisu</title>
+    <link rel="shortcut icon" href="../dist/images/schertech_logo_2.2.png" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="../dist/js/jquery.min.js"></script>
+    <script src="../dist/js/angular.min.js"></script>
+    <script src="../dist/kendo/js/kendo.all.min.js" type="text/javascript"></script>
+    <script src="../dist/js/bootstrap.min.js"></script>
+    <script src="../dist/toaster/toaster.js"></script>
+    <script src="../dist/js/spin.min.js"></script>
+    <script src="../dist/js/jquery.smoothState.js"></script>
+    <script src="../dist/js/adminlte.min.js"></script>
+    <script src="../dist/js/respond.min.js"></script>
+
+    <script src="../dist/js/moment.min.js"></script>
+    <script src="../dist/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="../dist/select2/dist/js/select2.full.min.js"></script>
+    <script src="../dist/js/jquery-ui.min.js"></script>
+    <script src="../dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="../dist/bootstrap-toggle/js/bootstrap-toggle.min.js"></script>
+    <script src="../dist/js/moment-with-locales.js"></script>
+    <script src="../dist/timepicker/bootstrap-timepicker.min.js"></script>
+    <script src="../dist/js/jsColor.js"></script>
+    <script src="/dist/config.js" type="text/javascript"></script>
+    <script src="app/shift_model.js"></script>
+
+    <link rel="stylesheet" href="../dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../dist/toaster/toaster.css">
+    <link rel="stylesheet" href="../dist/css/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../dist/css/animate.css">
+    <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../dist/css/custom_ah.css">
+    <link rel="stylesheet" href="/dist/css/google_font.css">
+    <link rel="stylesheet" type="text/css" href="../dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../dist/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="../dist/bootstrap-daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="../dist/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="../dist/timepicker/bootstrap-timepicker.min.css">
+    <link rel="stylesheet" href="../dist/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="../dist/bootstrap-toggle/css/bootstrap-toggle.min.css">
+    <link rel="stylesheet" href="../dist/kendo/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="../dist/kendo/styles/kendo.default.min.css" />
+    <link rel="stylesheet" href="../dist/kendo/styles/kendo.default.mobile.min.css" />
+    <link rel="stylesheet" href="../dist/css/default/kendo.custom.css" />
+    <style>
+        .child_body{background: transparent!important;}
+        .bootstrap-timepicker{width: 80%;margin-left: 20px;}
+        .tr_model td{border:none!important;}
+        .tr_model th{border:none!important;border-bottom: 1px solid #f4f4f4!important;}
+        #tbl_sft_list th{text-align: center!important;padding: 10px!important;}
+        #tbl_sft_list td{text-align: center;}
+        .dataTables_filter input[type=search]{margin-left: 0.5em;}
+        #tbl_sft_list_length select {border: 1px solid #ccc!important;}
+        #tbl_sft_list thead>tr{color: #fff;background-color: #3b8ab8;}
+        #tbl_sft_list .active td{background-color: #c9dde1!important;}
+        #tbl_sft_list tbody>tr:hover{background-color: #c9dde1;cursor: pointer;}
+        .dataTables_filter{float: right;width: 100%;margin-right: 0rem;}
+        #tbl_sft_list_filter label{width: 100%;text-align:right!important;}
+        #tbl_sft_list_filter input{width: 80%;border-radius: 0px;}
+        th { text-align: center!important;}
+        .bootstrap-timepicker-widget.dropdown-menu.open {
+            display: inline-block;
+            z-index: 100000!important;
+        }
+        #tbl_shift_settings td{ text-align: center!important;}
+        .table-condensed > thead > tr > td, .table-condensed > tbody > tr > td{
+            padding: 0px 5px!important;
+        }
+        #tbl_sft_hd_edit td{
+            border:none!important;
+            margin-bottom: 0px;}
+
+        .k-grid-content {height: calc(100vh - 206px);overflow: auto;}
+        .k-filter-row th, .k-grid-header th.k-header {text-align: center!important;}
+        .k-grid td{text-align: center!important;}
+        .grid-cell-content{text-align: center!important;}
+        .k-filtercell, .k-filtercell .k-widget, .k-filtercell>span{width:auto;}
+        .user-menu a:hover{background-color: #0092CB!important;}
+        .k-pager-info {padding: 0px!important; }
+        .k-tabstrip-wrapper .k-content{height: calc(100vh - 206px)!important;overflow: auto;}
+        #add_item_button{font-size: 13px!important;}
+    </style>
+</head>
+<body class="child_body" ng-app="sftmodelApp" ng-controller="sftmodelCtrl">
+    <div class="wrapper">
+        <section class="content" style="padding-bottom: 0px; padding-top: 5px;height: calc(100vh)!important;overflow: auto;">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box box-default" style="margin-bottom: 10px!important;">
+                        <div class="box-header with-border">
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <h3 class="box-title">{{multi_lang.shift_model.shift_model}}</h3>
+                                </div>
+                                <div class="col-sm-2" ng-show="(id > 0)" style=" margin: -6px!important;padding: 0px!important;">
+                                    <button id="add_item_button" type="button" class="btn btn-sm btn-primary pull-right" ng-click="showModal()">
+                                        <i class="fa fa-plus"></i>&nbsp;{{multi_lang.shift_model.new_model_btn}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-body" style="height: calc(100vh - 59px)!important;overflow: auto;">
+                            <div class="col-sm-5 col-md-6" style="overflow: auto;height: calc(100vh - 79px)!important;">
+                                <div kendo-grid="grid" k-options="mainGridOptions" k-rebind="mainGridOptions" id="kendo-grid"></div>
+                            </div>
+                            <div class="col-sm-7 col-md-6" style="padding-left:0px!important;">
+                                <div kendo-tab-strip k-content-urls="[ null, null]">
+                                    <ul>
+                                        <li class="k-state-active">{{multi_lang.shift_model.schicht}}</li>
+                                        <li>{{multi_lang.shift_model.schicht_detail}}</li>
+                                    </ul>
+
+                                    <div>
+                                        <div id="tab_shft_header">
+                                            <form class="form-horizontal" name="sftHeader" ng-show="!head_save">
+                                                <div class="col-sm-12" style="padding: 0px!important;width: 99%;">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4 control-label">{{multi_lang.shift_model.shift_model}}</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="k-textbox" id="txt_shift_name" name="txt_shift_name"
+                                                                   placeholder="{{multi_lang.shift_model.description_place}}" ng-model="shift_head_data.sft_name" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4 control-label"> {{multi_lang.shift_model.farbe}}</label>
+                                                        <div class="col-sm-3">
+                                                            <input id="txt_shift_color" class="k-textbox jscolor" value="{{shift_head_data.sft_color}}" ng-model="shift_head_data.sft_color">
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <select kendo-drop-down-list
+                                                                    ng-model="color"
+                                                                    k-data-text-field="'name'"
+                                                                    k-data-value-field="'color'"
+                                                                    k-data-source="color_list"
+                                                                    k-value-primitive="true"
+                                                                    k-option-label="'Seleziona Colore'"
+                                                                    k-auto-bind="false"
+                                                                    k-filter="'contains'"
+                                                                    k-change="color_change"
+                                                                    style="width: 80%">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4 control-label">{{multi_lang.shift_model.add}}</label>
+                                                        <div class="col-sm-3">
+                                                            <input type="number"
+                                                                   class="k-textbox" id="txt_shift_number"
+                                                                   placeholder="{{multi_lang.shift_model.add}}"
+                                                                   ng-model="shift_head_data.sft_count" required>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <button type="submit" class="btn btn-info" ng-disabled="sftHeader.$invalid" ng-click="save_header()">
+                                                                <i class="fa fa-floppy-o"></i>&nbsp; {{multi_lang.shift_model.apply}}</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                            <form class="form-horizontal" name="sftDetails" ng-show="head_save">
+                                                <div class="col-sm-12" style="padding: 0px!important;">
+                                                    <table class="table table-condensed" id="tbl_sft_hd_edit">
+                                                        <tr>
+                                                            <td width="60%">
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-4 control-label">
+                                                                        {{multi_lang.shift_model.shift_name}}:
+                                                                    </label>
+                                                                    <div id="div_dis_sft_name">
+                                                                        <div class="col-sm-3">
+                                                                            <label style="padding-top: 7px!important;">{{shift_head_data.sft_name}}</label>
+                                                                        </div>
+                                                                        <div class="col-sm-2" ng-show="(id > 0)" style="padding-right: 10px;">
+                                                                            <button class="btn btn-success btn-sm"  ng-click="edit_sft_name()"><i class="fa fa-pencil"></i></button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div id="div_txt_sft_name" style="display:none;">
+                                                                        <div class="col-sm-3">
+                                                                            <input type="text" class="k-textbox" placeholder="Shift Title" ng-model="shift_head_data.sft_name" required style="width: 100%;">
+                                                                        </div>
+                                                                        <div class="col-sm-2" ng-show="(id > 0)">
+                                                                            <button class="btn btn-success btn-sm"  ng-click="tick_sft_name(shift_head_data.sft_name)"><i class="fa fa-check"></i></button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td width="40%">
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-4 control-label">{{multi_lang.shift_model.schichten}}: </label>
+                                                                    <div class="col-sm-5">
+                                                                        <label style="padding-top: 7px!important;">{{shift_head_data.sft_count}}</label>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="50%">
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-4 control-label"> {{multi_lang.shift_model.farbe}}:</label>
+                                                                    <div id="div_dis_sft_color">
+                                                                        <div class="col-sm-3" style="padding-top: 7px!important;">
+                                                                            <label>{{shift_head_data.sft_color}}</label>
+                                                                            <button class="btn btn-deafult btn-sm" style="background-color: #{{shift_head_data.sft_color}};"></button>
+                                                                        </div>
+                                                                        <div class="col-sm-2" ng-show="(id > 0)" style="padding-right: 10px;">
+                                                                            <button class="btn btn-success btn-sm"  ng-click="edit_sft_color()"><i class="fa fa-pencil"></i></button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div id="div_txt_sft_color" style="display:none;">
+                                                                        <div class="col-sm-3">
+                                                                            <input class="k-textbox jscolor" value="{{shift_head_data.sft_color}}" ng-model="shift_head_data.sft_color" style="width: 100%;">
+                                                                        </div>
+                                                                        <div class="col-sm-2" ng-show="(id > 0)">
+                                                                            <button class="btn btn-success btn-sm"  ng-click="tick_sft_color(shift_head_data.sft_color)"><i class="fa fa-check"></i></button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td width="50%">
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-4 control-label">{{multi_lang.shift_model.work_hours}}:</label>
+                                                                    <div class="col-sm-5">
+                                                                        <label style="padding-top: 7px!important;">{{lbl_total_hours}}</label>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="col-sm-12" style="padding: 0px!important;">
+                                                    <hr>
+                                                    <table class="table table-condensed table-bordered">
+                                                        <tr class="tr_model">
+                                                            <th class="col-sm-2">{{multi_lang.shift_model.calculate}}</th>
+                                                            <th class="col-sm-2">{{multi_lang.shift_model.shift_name}}</th>
+                                                            <th class="col-sm-1">{{multi_lang.shift_model.kurzel}}</th>
+                                                            <th class="col-sm-2">{{multi_lang.shift_model.start}}</th>
+                                                            <th class="col-sm-2">{{multi_lang.shift_model.end}}</th>
+                                                            <th class="col-sm-2">{{multi_lang.shift_model.total_hours}}</th>
+                                                            <th class="col-sm-2" ng-show="(id > 0)" style="padding: 0px 1px!important;"></th>
+                                                        </tr>
+                                                        <tr ng-repeat="s in shift_count" class="tr_model">
+                                                            <td style="text-align: center;">
+                                                                <input kendo-mobile-switch type="checkbox" ng-model="s.calculate"/>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-group">
+                                                                    <div class="col-sm-12">
+                                                                        <input type="text" class="k-textbox"
+                                                                               id="txt_shift_name_{{s.id}}"
+                                                                               name="txt_shift_name_{{s.id}}"
+                                                                               placeholder="{{multi_lang.shift_model.shift_name}}"
+                                                                               ng-model="s.name" style="width: 80%;" required>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-group">
+                                                                    <div class="col-sm-12">
+                                                                        <input type="text" class="k-textbox" ng-model="s.code"
+                                                                               id="txt_shift_code_{{s.id}}"
+                                                                               name="txt_shift_code_{{s.id}}"
+                                                                               placeholder="{{multi_lang.shift_model.kurzel}}"
+                                                                               ng-model="s.code" style="width: 80%;" required>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="bootstrap-timepicker">
+                                                                    <div class="form-group">
+                                                                        <div class="input-group">
+                                                                            <input type="text" class="form-control" starttime
+                                                                                   id="txt_shift_start_{{s.id}}"
+                                                                                   data-index="{{s.id}}" ng-model="s.start">
+                                                                            <div class="input-group-addon">
+                                                                                <i class="fa fa-clock-o"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="bootstrap-timepicker">
+                                                                    <div class="form-group">
+                                                                        <div class="input-group">
+                                                                            <input type="text" class="form-control" endtime
+                                                                                   id="txt_shift_end_{{s.id}}"
+                                                                                   data-index="{{s.id}}"
+                                                                                   ng-model="s.end">
+                                                                            <div class="input-group-addon">
+                                                                                <i class="fa fa-clock-o"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-10 control-label"
+                                                                           style="text-align:center!important;"
+                                                                           id="lbl_ttl_hours_{{s.id}}">{{s.lblhour}}</label>
+                                                                </div>
+                                                            </td>
+                                                            <td ng-show="(id > 0)" style="padding: 0px 1px!important;">
+                                                                <button class="btn btn-success btn-sm" ng-show="$last" ng-click="add_sft(s.id)"><i class="fa fa-plus"></i></button>
+                                                                <button class="btn btn-danger btn-sm" ng-show="$last" ng-click="remove_sft(s.id)"><i class="fa fa-close"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div id="tab_shft_details" ng-show="(shift_count.length > 0)">
+                                            <div class="box box-default" ng-repeat="s in shift_count" style="margin-bottom: 0px!important;">
+                                                <div class="box-header with-border bg-gray clearfix" style="padding: 4px!important;">
+                                                    <button type="button" class="btn btn-box-tool pull-left bg-green-dark" ng-click="collapse_div(s.id)">
+                                                        <i id="collapse_btn_{{s.id}}" class="fa fa-minus"></i>
+                                                    </button>
+                                                    <h5 class="box-title" style="margin-bottom: 0px; padding: 5px; padding-left:20px; margin-top:0px; font-weight:400;font-size: 15px;">{{multi_lang.shift_model.shift_name}} : {{s.name}}
+                                                    </h5>
+                                                </div>
+                                                <div class="box-body" id="div_sht_setting_{{s.id}}" style="height: auto!important;max-height: calc(100vh - 400px)!important;overflow: auto;">
+                                                    <table class="table table-bordered table-condensed" id="tbl_shift_settings">
+                                                        <tr>
+                                                            <th>{{multi_lang.shift_model.grid_stunde_column}}</th>
+                                                            <th>{{multi_lang.shift_model.grid_gestern_column}}</th>
+                                                            <th>{{multi_lang.shift_model.grid_heute_column}}</th>
+                                                            <th>{{multi_lang.shift_model.grid_morgen_column}}</th>
+                                                        </tr>
+                                                        <tr ng-repeat="h in s.all_hour">
+                                                            <td>{{h.hour}}</td>
+                                                            <td>
+                                                                <label><input type="radio" name="rdo_{{h.id}}" ng-model="h.status" value="-1"></label>
+                                                            </td>
+                                                            <td>
+                                                                <label><input type="radio" name="rdo_{{h.id}}"  ng-model="h.status" value="0"></label>
+                                                            </td>
+                                                            <td>
+                                                                <label><input type="radio" name="rdo_{{h.id}}"  ng-model="h.status" value="1"></label>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <form class="form-horizontal" name="sftDetails" style="padding-top: 10px;">
+                                        <div class="form-group" style="margin-bottom:0px;">
+                                            <button type="button" class="btn btn-default pull-left" ng-click="cancel_save()">{{multi_lang.grid.btn_cancel}}</button>
+                                            <button type="submit" class="btn btn-info k-primary pull-right" ng-disabled="sftHeader.$invalid" ng-click="save_data()">
+                                                <i class="fa fa-floppy-o"></i>&nbsp; {{(id > 0)? multi_lang.grid.btn_update: multi_lang.grid.btn_save}}
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Modal-->
+        <div class="modal fade" id="model_delete_waring" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title content-align">{{multi_lang.shift_model.delete_warning_msg}}</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">{{multi_lang.grid.btn_no}}</button>
+                        <button type="button" class="btn btn-success pull-right" ng-click="delete_shft_modal()">{{multi_lang.grid.btn_yes}}</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div kendo-window="modal" k-title="''" k-visible="false" k-modal="true" k-draggable="false" k-resizable="false" style="padding: 1em 0;width: 30vw!important;">
+        <div class="k-edit-form-container">
+            <div class="divalert">
+                <p>{{multi_lang.grid.confirm_msg}}</p>
+            </div>
+            <div class="k-edit-buttons k-state-default">
+                <button class="k-button k-button-icontext k-primary k-grid-update" ng-click="delete_shft_modal()">
+                    <span class="k-icon k-i-check"></span>{{multi_lang.grid.btn_yes}}
+                </button>
+                <button class="k-button k-button-icontext k-grid-cancel" ng-click="cancle_delete()">
+                    <span class="k-icon k-i-cancel"></span>{{multi_lang.grid.btn_cancel}}
+                </button>
+            </div>
+        </div>
+    </div>
+    
+        <div id ="spinner" style="position:fixed;top:50%;left:50%; z-index:999"></div>
+    </div>
+</body>
+</html>

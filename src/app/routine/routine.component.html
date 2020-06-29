@@ -35,13 +35,12 @@
         <mat-tab>
 			<ng-template mat-tab-label>
 				<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-					<!-- <span class="badge primary">1</span> -->
 					<span>Jerin Jahan</span>
 				</div>
             </ng-template>
             <mat-card>
                 <h3 style="font-weight: bold;">Candidate Name : Jerin Jahan</h3>
-                <table class="table table-bordered table condensed">
+                <!-- <table mat-table class="table table-bordered table-condensed">
                     <tr>
                         <th width="10%">ID</th>
                         <th colspan="2">Day Name</th>
@@ -50,7 +49,7 @@
                         <td width="10%">{{node.id}} .</td>
                         <td width="20%">{{node.day}}</td>
                         <td width="70%">
-                            <table class="table table-bordered table condensed">
+                            <table class="table-borderless">
                                 <tr>
                                     <th>Status</th>
                                     <th>SL</th>
@@ -70,19 +69,48 @@
                             </table>
                         </td>
                     </tr>
-                </table>
+                </table> -->
+                <div class="box box-default" *ngFor="let node of itemList" style="margin-bottom: 0px!important;">
+                    <div class="box-header with-border bg-gray clearfix" style="padding: 4px!important;">
+                        <button type="button" class="btn btn-box-tool pull-left bg-green-dark" (click)="collapse_div(node.id)">
+                            <i class="fa" [ngClass]="{'fa-plus': !node.showChild, 'fa-minus': node.showChild}"></i>
+                        </button>
+                        <h5 class="box-title" style="margin-bottom: 0px; padding: 5px; padding-left:20px; margin-top:0px; font-weight:400;font-size: 15px;">
+                            {{node.day}}
+                        </h5>
+                    </div>
+                    <div class="box-body box1" [class.opened]="node.showChild">
+                        <table class="table table-bordered table-condensed">
+                            <tr>
+                                <th>Status</th>
+                                <th>SL</th>
+                                <th>Name</th>
+                                <th>Number</th>
+                            </tr>
+                            <tr *ngFor="let i of node.items">
+                                <td width="10%">
+                                    <mat-checkbox class="checklist-leaf-node"
+                                        [checked]="i.isDone" (change)="doneItem(node.id,i.id)">
+                                    </mat-checkbox>
+                                </td>
+                                <td width="20%">{{i.id}}</td>
+                                <td width="50%">{{i.name}}</td>
+                                <td width="20%">{{i.amount}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </mat-card>
         </mat-tab>
         <mat-tab>
 			<ng-template mat-tab-label>
 				<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-					<!-- <span class="badge primary">2</span> -->
 					<span>Raqib Hasan</span>
 				</div>
             </ng-template>
             <mat-card>
                 <h3 style="font-weight: bold;">Candidate Name : Raqib Hasan</h3>
-                <table class="table table-bordered table condensed">
+                <!-- <table class="table table-bordered table condensed">
                     <tr>
                         <th width="10%">ID</th>
                         <th colspan="2">Day Name</th>
@@ -111,8 +139,42 @@
                             </table>
                         </td>
                     </tr>
-                </table>
+                </table> -->
+
+                <div class="box box-default" *ngFor="let node of itemList2" style="margin-bottom: 0px!important;">
+                    <div class="box-header with-border bg-gray clearfix" style="padding: 4px!important;">
+                        <button type="button" class="btn btn-box-tool pull-left bg-green-dark" (click)="collapse_div1(node.id)">
+                            <i class="fa" [ngClass]="{'fa-plus': !node.showChild, 'fa-minus': node.showChild}"></i>
+                        </button>
+                        <h5 class="box-title" style="margin-bottom: 0px; padding: 5px; padding-left:20px; margin-top:0px; font-weight:400;font-size: 15px;">
+                            {{node.day}}
+                        </h5>
+                    </div>
+                    <div class="box-body box1" [class.opened]="node.showChild">
+                        <table class="table table-bordered table-condensed">
+                            <tr>
+                                <th>Status</th>
+                                <th>SL</th>
+                                <th>Name</th>
+                                <th>Number</th>
+                            </tr>
+                            <tr *ngFor="let i of node.items">
+                                <td width="10%">
+                                    <mat-checkbox class="checklist-leaf-node"
+                                        [checked]="i.isDone" (change)="doneItem1(node.id,i.id)">
+                                    </mat-checkbox>
+                                </td>
+                                <td width="20%">{{i.id}}</td>
+                                <td width="50%">{{i.name}}</td>
+                                <td width="20%">{{i.amount}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </mat-card>
         </mat-tab>
 	</mat-tab-group>
 </div>
+
+
+

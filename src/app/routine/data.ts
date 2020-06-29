@@ -2,6 +2,7 @@ export const DataLists = [
     {
         id:1,
         day:'Day One',
+        showChild:false,
         items:[
             {id:1,name:'Read Aloud',amount:20,isDone:false},
             {id:2,name:'Repeat Sentence',amount:25,isDone:false},
@@ -14,6 +15,7 @@ export const DataLists = [
     {
         id:2,
         day:'Day Two',
+        showChild:false,
         items:[
             {id:1,name:'Read Aloud',amount:'20',isDone:false},
             {id:2,name:'Repeat Sentence',amount:25,isDone:false},
@@ -27,6 +29,7 @@ export const DataLists = [
     {
         id:3,
         day:'Day Three',
+        showChild:false,
         items:[
             {id:1,name:'Read Aloud',amount:20,isDone:false},
             {id:2,name:'Repeat Sentence',amount:25,isDone:false},
@@ -41,6 +44,7 @@ export const DataLists = [
     {
         id:4,
         day:'Day Five',
+        showChild:false,
         items:[
             {id:1,name:'Read Aloud',amount:20,isDone:false},
             {id:2,name:'Repeat Sentence',amount:25,isDone:false},
@@ -55,6 +59,7 @@ export const DataLists = [
     {
         id:6,
         day:'Day Six',
+        showChild:false,
         items:[
             {id:1,name:'Repeat Sentence',amount:25,isDone:false},
             {id:2,name:'Describe Image',amount:10,isDone:false},
@@ -71,6 +76,7 @@ export const DataLists = [
     {
         id:7,
         day:'Day Eight',
+        showChild:false,
         items:[
             {id:1,name:'Weak Area 1',amount:25,isDone:false},
             {id:2,name:'Weak Area 2',amount:25,isDone:false},
@@ -87,6 +93,7 @@ export const DataLists = [
     {
         id:8,
         day:'Day Nine',
+        showChild:false,
         items:[
             {id:1,name:'Weak Area 1',amount:25,isDone:false},
             {id:2,name:'Weak Area 2',amount:25,isDone:false},
@@ -103,6 +110,7 @@ export const DataLists = [
     {
         id:9,
         day:'Day Ten',
+        showChild:false,
         items:[
             {id:1,name:'Weak Area 3',amount:25,isDone:false},
             {id:2,name:'Weak Area 4',amount:25,isDone:false},
@@ -119,6 +127,7 @@ export const DataLists = [
     {
         id:10,
         day:'Day Twelve',
+        showChild:false,
         items:[
             {id:1,name:'Weak Area 1',amount:25,isDone:false},
             {id:2,name:'Weak Area 2',amount:25,isDone:false},
@@ -135,6 +144,7 @@ export const DataLists = [
     {
         id:11,
         day:'Day Thirteen',
+        showChild:false,
         items:[
             {id:1,name:'Weak Area 3',amount:25,isDone:false},
             {id:2,name:'Weak Area 4',amount:25,isDone:false},
@@ -151,6 +161,7 @@ export const DataLists = [
     {
         id:12,
         day:'Day Thirteen',
+        showChild:false,
         items:[
             {id:1,name:'Weak Area 3',amount:25,isDone:false},
             {id:2,name:'Weak Area 4',amount:25,isDone:false},

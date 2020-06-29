@@ -235,8 +235,8 @@ export class RoutineComponent implements OnInit {
 	itemList : any;
 	itemList2 : any;
 	private _jsonURL = 'assets/data.json';
-  	private routineData: Array<DayLists1>;
-
+    private routineData: Array<DayLists1>;
+    
 	private _transformer = (node: DayLists, level: number) => {
 		return {
 			expandable: !!node.children && node.children.length > 0,
@@ -311,4 +311,11 @@ export class RoutineComponent implements OnInit {
         localStorage.setItem('viewAs',JSON.stringify(this.selectedIndex));
     }
 
+    collapse_div(id){
+        this.itemList[id-1].showChild = !this.itemList[id-1].showChild;
+    }
+
+    collapse_div1(id){
+        this.itemList2[id-1].showChild = !this.itemList2[id-1].showChild;
+    }
 }
