@@ -43,7 +43,7 @@ export const DataLists = [
     },
     {
         id:4,
-        day:'Day Five',
+        day:'Day Four',
         showChild:false,
         items:[
             {id:1,name:'Read Aloud',amount:20,isDone:false},
@@ -57,6 +57,23 @@ export const DataLists = [
         ]
     },
     {
+        id:5,
+        day:'Day Five',
+        showChild:false,
+        items:[
+            {id:1,name:'Repeat Sentence',amount:25,isDone:false},
+            {id:2,name:'Describe Image',amount:10,isDone:false},
+            {id:3,name:'Retell Lecture',amount:5,isDone:false},
+            {id:4,name:'Summarize Written Text',amount:2,isDone:false},
+            {id:5,name:'Eassy',amount:1,isDone:false},
+            {id:6,name:'Reading Re-orders',amount:15,isDone:false},
+            {id:7,name:'Reading & Writing Blanks(Dropdown)',amount:20,isDone:false},
+            {id:8,name:'Summarize Spoken Text',amount:2,isDone:false},
+            {id:9,name:'Listening Fill in The Blanks',amount:5,isDone:false},
+            {id:10,name:'Write From Dictation',amount:25,isDone:false}
+        ]
+    },
+    {
         id:6,
         day:'Day Six',
         showChild:false,
@@ -64,13 +81,13 @@ export const DataLists = [
             {id:1,name:'Repeat Sentence',amount:25,isDone:false},
             {id:2,name:'Describe Image',amount:10,isDone:false},
             {id:3,name:'Retell Lecture',amount:5,isDone:false},
-            {id:4,name:'Summarize Wrriten Text',amount:2,isDone:false},
+            {id:4,name:'Summarize Written Text',amount:2,isDone:false},
             {id:5,name:'Reading MCQ Single/Multiple (Each)',amount:10,isDone:false},
-            {id:5,name:'Reading Drag & Drop Blanks',amount:20,isDone:false},
-            {id:6,name:'Reading & Writing Blanks(Dropdown)',amount:25,isDone:false},
-            {id:7,name:'Summarize Spoken Text',amount:2,isDone:false},
-            {id:8,name:'Listening Fill in The Blanks',amount:5,isDone:false},
-            {id:9,name:'Write From Dictation',amount:25,isDone:false}
+            {id:6,name:'Reading Drag & Drop Blanks',amount:20,isDone:false},
+            {id:7,name:'Reading & Writing Blanks(Dropdown)',amount:25,isDone:false},
+            {id:8,name:'Summarize Spoken Text',amount:2,isDone:false},
+            {id:9,name:'Listening Fill in The Blanks',amount:5,isDone:false},
+            {id:10,name:'Write From Dictation',amount:25,isDone:false}
         ]
     },
     {
@@ -160,7 +177,7 @@ export const DataLists = [
     },
     {
         id:12,
-        day:'Day Thirteen',
+        day:'Day Fourteen',
         showChild:false,
         items:[
             {id:1,name:'Weak Area 3',amount:25,isDone:false},
