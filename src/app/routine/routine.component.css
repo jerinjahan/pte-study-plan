@@ -34,3 +34,6 @@
     max-height: 800px;
     transition: ease-in-out 800ms max-height;
 }
+.box-title{
+    margin-bottom: 0px; padding: 5px; padding-left:20px; margin-top:0px; font-weight:400;font-size: 15px;
+}

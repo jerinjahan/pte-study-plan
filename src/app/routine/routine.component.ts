@@ -318,4 +318,7 @@ export class RoutineComponent implements OnInit {
     collapse_div1(id){
         this.itemList2[id-1].showChild = !this.itemList2[id-1].showChild;
     }
+    getCount(items){
+        return items.filter(item => !item.isDone).length;
+    }
 }
