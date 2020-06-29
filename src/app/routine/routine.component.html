@@ -1,14 +1,20 @@
 
-<h2 style="text-align: center;">PTE STUDY 14 DAYS PLAN</h2>
 
-<div style="text-align: right;margin-bottom: 15px;">
-    View As :
-    <mat-button-toggle-group name="fontStyle" aria-label="Font Style" >
-        <mat-button-toggle value="0" (click)="viewAs(0)" [checked]="(selectedIndex == 0)?true:false">Jerin</mat-button-toggle>
-        <mat-button-toggle value="1" (click)="viewAs(1)" [checked]="(selectedIndex == 1)?true:false">Raqib</mat-button-toggle>
-    </mat-button-toggle-group>
+
+<div class="row justify-content-end">
+    <div class="col-4">
+        <h2 style="text-align: center;">PTE STUDY 14 DAYS PLAN</h2>
+    </div>
+    <div class="col-4">
+        <div class="pull-right py-1">
+            View As :
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style" >
+                <mat-button-toggle value="0" (click)="viewAs(0)" [checked]="(selectedIndex == 0)?true:false">Jerin</mat-button-toggle>
+                <mat-button-toggle value="1" (click)="viewAs(1)" [checked]="(selectedIndex == 1)?true:false">Raqib</mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+    </div>
 </div>
-
 
 <div class="card alternative">
 	<mat-tab-group class="form-wizard" [(selectedIndex)]="selectedIndex">
