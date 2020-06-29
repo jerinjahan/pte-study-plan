@@ -69,6 +69,8 @@
                         </button>
                         <h5 class="box-title">
                             {{node.day}}
+                            <span class="pull-right">Remaining : {{getCount(node.items)}}</span>
+                            <span class="pull-right mr-5">Total : {{node.items.length}}</span>
                         </h5>
                     </div>
                     <div class="box-body box1" [class.opened]="node.showChild">
