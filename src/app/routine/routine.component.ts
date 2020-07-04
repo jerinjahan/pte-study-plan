@@ -285,6 +285,7 @@ export class RoutineComponent implements OnInit {
         if(locatlStorageDataViewAs != ''){
             this.selectedIndex = JSON.parse(locatlStorageDataViewAs);
         }
+        console.log(this.itemList);
 	}
 
 	todoLeafItemSelectionToggle(node: DayLists): void {

@@ -26,8 +26,11 @@ import { RoutineComponent } from './routine/routine.component';
 import { MatListModule} from '@angular/material/list';
 import { MatTreeModule} from '@angular/material/tree';
 import { MatCardModule} from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule} from '@angular/material/sort';
 import { CdkTreeModule} from '@angular/cdk/tree';
 import { HttpClientModule } from '@angular/common/http';
+import { MarkingCriteriaComponent } from './marking-criteria/marking-criteria.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     DefaultComponent,
     InvoiceComponent,
     ShippingComponent,
-    RoutineComponent
+    RoutineComponent,
+    MarkingCriteriaComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     CdkTreeModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent],
