@@ -4,29 +4,29 @@
     <mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
         <ng-container matColumnDef="position">
-            <mat-header-cell *matHeaderCellDef mat-sort-header width="10%"> No. </mat-header-cell>
-            <mat-cell *matCellDef="let element" width="10%"> {{element.position}}. </mat-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.position}}. </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="section">
-            <mat-header-cell *matHeaderCellDef mat-sort-header width="20%"> Section </mat-header-cell>
-            <mat-cell *matCellDef="let element" width="20%"> {{element.section}} </mat-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Section </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.section}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="type">
-            <mat-header-cell *matHeaderCellDef mat-sort-header width="45%"> Question Type </mat-header-cell>
-            <mat-cell *matCellDef="let element" width="40%"> {{element.type}} </mat-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Question Type </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="number" >
-            <mat-header-cell *matHeaderCellDef mat-sort-header width="20%"> Number of Questions </mat-header-cell>
-            <mat-cell *matCellDef="let element" width="20%"> {{element.number}} </mat-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Number of Questions </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.number}} </mat-cell>
         </ng-container>
     
 
         <ng-container matColumnDef="mark">
-            <mat-header-cell *matHeaderCellDef mat-sort-header width="5%"> Prioritisation </mat-header-cell>
-            <mat-cell *matCellDef="let element" width="10%" [style.background-color]="element.color"> {{element.mark}} </mat-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Prioritisation </mat-header-cell>
+            <mat-cell *matCellDef="let element" [style.background-color]="element.color"> {{element.mark}} </mat-cell>
         </ng-container>
     
         <mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></mat-header-row>
