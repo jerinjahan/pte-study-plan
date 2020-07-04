@@ -183,7 +183,9 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class MarkingCriteriaComponent implements OnInit {
 	displayedColumns: string[] = ['position', 'section', 'type', 'number', 'mark'];
 	dataSource = new MatTableDataSource(ELEMENT_DATA);
-  
+	full: boolean = true;
+	limit: number = 1000;
+	
 	@ViewChild(MatSort, {static: true}) sort: MatSort;
   
 	ngOnInit() {
