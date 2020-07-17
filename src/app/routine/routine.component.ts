@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataLists } from './data';
 import { FlatTreeControl} from '@angular/cdk/tree';
 import { MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
-import { HttpClient } from "@angular/common/http";
-
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { from } from 'rxjs';
 
 interface Items {
 	id: number,
@@ -236,6 +236,7 @@ export class RoutineComponent implements OnInit {
 	itemList2 : any;
 	private _jsonURL = 'assets/data.json';
     private routineData: Array<DayLists1>;
+    apeUrl = 'https://api.apeuni.com/api/v1/studies/records/list?user_detail=jahanjerin%40gmail.com&token=1sGAxFNNUrDDeb387eJvPCY2etsKzhKAPwJaFXFP&acc_type=email&client=-QxsFYxcAA&api_type=e1&locale=en&device_type=web-1.0.0-Chrome-Chrome+83.0.4103.116+on+Windows+10+64-bit&page=1&page_size=4';
     
 	private _transformer = (node: DayLists, level: number) => {
 		return {
@@ -257,10 +258,39 @@ export class RoutineComponent implements OnInit {
 		node => node.children
 	);
 
-	dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
+    dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
 	constructor(private httpClient: HttpClient) { 
-		this.dataSource.data = TREE_DATA;
+        this.dataSource.data = TREE_DATA;
+        let httpHeaders = new HttpHeaders()
+           .set('Content-Type', 'application/json')
+           .set('Access-Control-Allow-Credentials', 'true')
+           .set('Access-Control-Allow-Origin', '*');
+           
+        // this.httpClient.get(this.apeUrl,{ headers: httpHeaders}).subscribe(
+        //     (res : any) =>{
+        //         console.log('data = ',res);
+        //     }
+        // );
+
+        let result = from( // wrap the fetch in a from if you need an rxjs Observable
+            fetch(
+                this.apeUrl,
+                {
+                    headers: {'Content-Type': 'application/json', 
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'GET'},
+                    method: 'GET',
+                    mode: 'no-cors'
+                }
+            )
+        );
+        result.subscribe({
+            next(response) { console.log('In next',response); },
+            error(err) { console.error('Error: ' + err); },
+            complete() { console.log('Completed'); }
+        });
+        
 	}
 	hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
 	
@@ -285,7 +315,6 @@ export class RoutineComponent implements OnInit {
         if(locatlStorageDataViewAs != ''){
             this.selectedIndex = JSON.parse(locatlStorageDataViewAs);
         }
-        console.log(this.itemList);
 	}
 
 	todoLeafItemSelectionToggle(node: DayLists): void {

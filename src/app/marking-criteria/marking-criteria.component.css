@@ -30,14 +30,39 @@ mat-cell:last-of-type, mat-header-cell:last-of-type, mat-footer-cell:last-of-typ
     flex: 0 0 10%;
 }
 .mat-column-section {
-    flex: 0 0 15%;
+    flex: 0 0 10%;
+    justify-content: center;
 }
 .mat-column-type {
-    flex: 0 0 40%;
+    flex: 0 0 28%;
+    justify-content: center;
 }
 .mat-column-number {
-    flex: 0 0 15%;
+    flex: 0 0 10%;
+    justify-content: center;
+}
+
+.mat-column-type1 {
+    flex: 0 0 7%;
+    justify-content: center;
+}
+
+.mat-column-type2 {
+    flex: 0 0 7%;
+    justify-content: center;
+}
+
+.mat-column-type3 {
+    flex: 0 0 7%;
+    justify-content: center;
+}
+.mat-column-type4 {
+    flex: 0 0 7%;
+    justify-content: center;
 }
 .mat-column-mark {
-    flex: 0 0 20%;
+    flex: 0 0 14%;
+}
+mat-cell, mat-header-cell, mat-footer-cell{
+    border-left: 1px solid rgba(0, 0, 0, 0.12)!important;
 }

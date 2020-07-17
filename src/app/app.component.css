@@ -1,0 +1,4 @@
+.container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+    padding-right: 30px!important;
+    padding-left: 30px!important;
+}

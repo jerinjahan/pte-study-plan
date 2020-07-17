@@ -19,8 +19,28 @@
         </ng-container>
 
         <ng-container matColumnDef="number" >
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Number of Questions </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> No. of Questions </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.number}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="type1" >
+            <mat-header-cell *matHeaderCellDef mat-sort-header> S </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.type1}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="type2" >
+            <mat-header-cell *matHeaderCellDef mat-sort-header> W </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.type2}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="type3" >
+            <mat-header-cell *matHeaderCellDef mat-sort-header> R </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.type3}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="type4" >
+            <mat-header-cell *matHeaderCellDef mat-sort-header> L </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.type4}} </mat-cell>
         </ng-container>
     
 
