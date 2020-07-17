@@ -27,18 +27,18 @@ mat-cell:last-of-type, mat-header-cell:last-of-type, mat-footer-cell:last-of-typ
     justify-content: center;
 }
 .mat-column-position {
-    flex: 0 0 10%;
+    flex: 0 0 9%;
 }
 .mat-column-section {
     flex: 0 0 10%;
     justify-content: center;
 }
 .mat-column-type {
-    flex: 0 0 28%;
+    flex: 0 0 27%;
     justify-content: center;
 }
 .mat-column-number {
-    flex: 0 0 10%;
+    flex: 0 0 12%;
     justify-content: center;
 }
 
