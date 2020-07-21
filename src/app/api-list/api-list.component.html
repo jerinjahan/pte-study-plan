@@ -1,0 +1,73 @@
+
+<h2 style="text-align: center;">Missing and Required API List</h2>
+<p style="text-align: center;">UI Link : <a>https://choukash.netlify.app/</a></p><br>
+
+<div class="row">
+    <div class="col-md-12 col-xs-12" style="margin-bottom: 15px;;">
+        <h2 style="text-align: center;">Required API List</h2>
+        <mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+            <ng-container matColumnDef="position">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.position}}. </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="table_name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Table/ Page </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.table_name}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="column">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Column Names </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.column}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="purpose" >
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Purpose </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.purpose}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="comment" >
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Comment </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.comment}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                <mat-cell *matCellDef="let element" [style.background-color]="element.color"> {{element.status}} </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
+
+    <div class="col-md-12 col-xs-12">
+        <h2 style="text-align: center;">Missing Columns in Api</h2>
+        <mat-table #table [dataSource]="dataSource2" matSort class="mat-elevation-z8">
+
+            <ng-container matColumnDef="sl">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.sl}}. </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="api">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Api </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.api}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="columns">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Missing Columns </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.columns}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                <mat-cell *matCellDef="let element" [style.background-color]="element.color"> {{element.status}} </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns2;sticky: true"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns2;"></mat-row>
+        </mat-table>
+    </div>
+</div>

@@ -31,6 +31,7 @@ import { MatSortModule} from '@angular/material/sort';
 import { CdkTreeModule} from '@angular/cdk/tree';
 import { HttpClientModule } from '@angular/common/http';
 import { MarkingCriteriaComponent } from './marking-criteria/marking-criteria.component';
+import { ApiListComponent } from './api-list/api-list.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MarkingCriteriaComponent } from './marking-criteria/marking-criteria.co
     InvoiceComponent,
     ShippingComponent,
     RoutineComponent,
-    MarkingCriteriaComponent
+    MarkingCriteriaComponent,
+    ApiListComponent
   ],
   imports: [
     BrowserModule,
