@@ -5,9 +5,9 @@ import { ShippingComponent } from './shipping/shipping.component';
 
 
 const routes: Routes = [
-  { path: '', component: RoutineComponent, pathMatch: 'full' },
-  { path: 'test-path', component: ShippingComponent },
-  { path: '**', redirectTo: '' }
+	{ path: '', component: RoutineComponent, pathMatch: 'full' },
+	{ path: 'test-path', component: ShippingComponent },
+	{ path: '**', redirectTo: '' }
 ];
 
 @NgModule({
