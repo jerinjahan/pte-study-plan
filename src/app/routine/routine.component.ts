@@ -234,6 +234,7 @@ export class RoutineComponent implements OnInit {
 	selectedIndex = 0;
 	itemList : any;
 	itemList2 : any;
+	itemList3 : any;
 	private _jsonURL = 'assets/data.json';
     private routineData: Array<DayLists1>;
     apeUrl = 'https://api.apeuni.com/api/v1/studies/records/list?user_detail=jahanjerin%40gmail.com&token=1sGAxFNNUrDDeb387eJvPCY2etsKzhKAPwJaFXFP&acc_type=email&client=-QxsFYxcAA&api_type=e1&locale=en&device_type=web-1.0.0-Chrome-Chrome+83.0.4103.116+on+Windows+10+64-bit&page=1&page_size=4';
@@ -298,6 +299,7 @@ export class RoutineComponent implements OnInit {
 	ngOnInit(): void {
 		let locatlStorageDataJ = localStorage.getItem('JitemLists');
 		let locatlStorageDataR = localStorage.getItem('RitemLists');
+		let locatlStorageDataM = localStorage.getItem('MitemLists');
 		let locatlStorageDataViewAs = localStorage.getItem('viewAs');
 		if(locatlStorageDataJ == null || locatlStorageDataJ == ''){
 			this.itemList = DataLists;
@@ -311,6 +313,12 @@ export class RoutineComponent implements OnInit {
 			localStorage.setItem('RitemLists',JSON.stringify(this.itemList2));
 		}else{
 			this.itemList2 = JSON.parse(locatlStorageDataR);
+        }
+		if(locatlStorageDataM == null || locatlStorageDataM == ''){
+			this.itemList3 = DataLists;
+			localStorage.setItem('MitemLists',JSON.stringify(this.itemList3));
+		}else{
+			this.itemList3 = JSON.parse(locatlStorageDataM);
         }
         if(locatlStorageDataViewAs != ''){
             this.selectedIndex = JSON.parse(locatlStorageDataViewAs);
@@ -336,6 +344,10 @@ export class RoutineComponent implements OnInit {
 		this.itemList2[(parentIndex -1)].items[childIndex -1].isDone = !this.itemList2[(parentIndex -1)].items[childIndex -1].isDone;
 		localStorage.setItem('RitemLists',JSON.stringify(this.itemList2));
 	}
+    doneItem2(parentIndex,childIndex){
+		this.itemList3[(parentIndex -1)].items[childIndex -1].isDone = !this.itemList3[(parentIndex -1)].items[childIndex -1].isDone;
+		localStorage.setItem('MitemLists',JSON.stringify(this.itemList3));
+	}
 	viewAs(val){
         this.selectedIndex = val;
         localStorage.setItem('viewAs',JSON.stringify(this.selectedIndex));
@@ -347,6 +359,9 @@ export class RoutineComponent implements OnInit {
 
     collapse_div1(id){
         this.itemList2[id-1].showChild = !this.itemList2[id-1].showChild;
+    }
+    collapse_div3(id){
+        this.itemList3[id-1].showChild = !this.itemList3[id-1].showChild;
     }
     getCount(items){
         return items.filter(item => !item.isDone).length;

@@ -12,6 +12,7 @@
             <mat-button-toggle-group name="fontStyle" aria-label="Font Style" >
                 <mat-button-toggle value="0" (click)="viewAs(0)" [checked]="(selectedIndex == 0)?true:false">Jerin</mat-button-toggle>
                 <mat-button-toggle value="1" (click)="viewAs(1)" [checked]="(selectedIndex == 1)?true:false">Raqib</mat-button-toggle>
+                <mat-button-toggle value="1" (click)="viewAs(2)" [checked]="(selectedIndex == 2)?true:false">Masksud</mat-button-toggle>
             </mat-button-toggle-group>
         </div>
     </div>
@@ -94,6 +95,48 @@
                                         <td width="10%">
                                             <mat-checkbox class="checklist-leaf-node"
                                                 [checked]="i.isDone" (change)="doneItem1(node.id,i.id)">
+                                            </mat-checkbox>
+                                        </td>
+                                        <td width="20%">{{i.id}}</td>
+                                        <td width="50%">{{i.name}}</td>
+                                        <td width="20%">{{i.amount}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </mat-card>
+                </mat-tab>
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                            <span>Masksud Imtiaz Ahmed</span>
+                        </div>
+                    </ng-template>
+                    <mat-card>
+                        <h3 style="font-weight: bold;">Candidate Name : Masksud Imtiaz </h3>
+                        <div class="box box-default" *ngFor="let node of itemList3" style="margin-bottom: 0px!important;">
+                            <div class="box-header with-border bg-gray clearfix" style="padding: 4px!important;">
+                                <button class="btn pull-left" (click)="collapse_div3(node.id)">
+                                    <i class="fa" [ngClass]="{'fa-plus': !node.showChild, 'fa-minus': node.showChild}"></i>
+                                </button>
+                                <h5 class="box-title">
+                                    {{node.day}}
+                                    <span class="pull-right">Remaining : {{getCount(node.items)}}</span>
+                                    <span class="pull-right mr-5">Total : {{node.items.length}}</span>
+                                </h5>
+                            </div>
+                            <div class="box-body box1" [class.opened]="node.showChild">
+                                <table class="table table-bordered table-condensed">
+                                    <tr>
+                                        <th>Status</th>
+                                        <th>SL</th>
+                                        <th>Name</th>
+                                        <th>Number</th>
+                                    </tr>
+                                    <tr *ngFor="let i of node.items">
+                                        <td width="10%">
+                                            <mat-checkbox class="checklist-leaf-node"
+                                                [checked]="i.isDone" (change)="doneItem2(node.id,i.id)">
                                             </mat-checkbox>
                                         </td>
                                         <td width="20%">{{i.id}}</td>
